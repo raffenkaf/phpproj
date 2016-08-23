@@ -1,0 +1,413 @@
+@CHARSET "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.textCenter {
+	text-align: center;
+}
+
+ul.breadcrumb {
+	text-align: left;
+}
+
+body {
+	background-color: #FFE4B5;	
+}
+
+body p, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+    padding: 0;
+}
+
+div.general {
+	width: 1000px;
+	margin: auto;
+	background-color: #FFEBCD;	
+}
+
+div.header {
+	height: 140px;
+	padding: 10px;
+}
+
+div.proverb {
+	padding: 5px;
+	border: 2px solid #708090;
+	float: left;
+	width: 48%;
+}
+
+div.authorization {
+	padding: 10px;
+	padding-top: 1px;
+	float: right;
+	width: 50%;
+}
+
+div.authorization span {
+	display: inline-block;
+	margin: 5px;
+	width: 50px;
+}
+
+input.textInput {
+	margin: 5px;
+	width: 130px;
+}
+
+div.search {
+	padding: 5px;
+	padding-left: 15px;
+	padding-bottom: 2px;
+	background-color: #FFFFE0;
+	text-align: center;
+}
+
+div.search label{	
+	text-align: left;
+	min-width: 15%;
+}
+
+input.searchInput {
+	width: 30%;
+}
+
+div.warning {
+	margin: 10px;
+}
+	
+.loginButton {
+	width: 70px;	
+}
+
+div.authorization a.registrationButton {
+	-webkit-appearance: button;
+    -moz-appearance: button;
+    text-align: center;
+    text-decoration: none;
+    color: initial;
+	width: 110px;
+	margin-top: 15px;
+	border-width: 2px;
+	border-style: outset;
+}
+
+a.personalPage {
+	-webkit-appearance: button;
+    -moz-appearance: button;
+    text-align: center;
+    text-decoration: none;
+    color: initial;
+	width: 200px;
+	margin-top: 10px;
+}
+
+div.mainContent {
+	padding: 20px;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	text-align: center;
+	min-height: 480px;
+	overflow: hidden;
+}
+
+div.mainContent a{
+	text-decoration: none;
+}
+
+div.searchResult {
+	float: left;
+	height: 120px;
+	width: 45%;
+	border: 2px solid black;
+	margin: 3px;
+}
+
+div.searchTextData {
+	float: right;
+	position: relative;
+	top: 30%;
+	padding: 5px;
+	width: 60%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+div.searchTextData h4{
+	max-width: 240px; 
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+
+div.searchTextData a:link {
+	color: black;
+}
+
+div.searchTextData a:visited {
+	color: black;
+}
+
+div.searchTextData a:hover {
+	color: black;
+}
+
+div.searchTextData a:active {
+	color: black;
+}
+
+div.searchPhoto {
+	float: left;
+	width: 40%;	
+}
+
+div.searchPhoto img{
+	margin: 20px;
+	height: 80px;	
+}
+
+div.leftUserWatchChoice img{
+	width: 30%;
+	margin: 10px;
+}
+
+div.rightUserDownloadChoice img{
+	width: 30%;
+	margin: 10px;
+}
+
+div.leftUserWatchChoice {
+	float: left;
+	width: 45%;
+    padding: 10px;
+}
+
+div.rightUserDownloadChoice {
+	float: right;
+	width: 45%;
+	padding: 10px;
+}
+
+div.photo {
+	float: left;
+	width: 40%;
+}
+
+div.photo img{
+	margin: 20px;
+	width: 60%;
+}
+
+div.personalData {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	text-align: left;	
+}
+
+a.buttonLink {
+	-webkit-appearance: button;
+    -moz-appearance: button;
+    text-align: center;
+    text-decoration: none;
+    color: initial;
+	font-size: large;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+table.personalDataTable {
+	text-align: left;
+	font-size: large;
+}
+
+table.personalDataTable td {
+	padding: 10px;
+	max-width: 400px;
+}
+
+div.interestingLinks {
+	clear: both;
+}
+
+div.interestingLinks h4{
+	padding: 10px;
+}
+
+div.footer {
+	text-align: center;
+	min-height: 12px;
+	padding: 10px;
+	font-size: small;
+}
+
+div.warningWithoutHeader {
+	padding: 10px;
+}
+
+div.mainContentWithoutHeader {
+	padding: 20px;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	text-align: center;
+	min-height: 650px;
+}
+
+div.mainContentWithoutHeader h1{
+	margin-bottom: 20px;
+}
+
+div.registrationData {
+	margin: auto;
+	width: 60%;
+}
+
+div.registrationData label{
+	display: inline-block;
+	padding: 5px;
+	width: 250px;
+}
+
+div.registrationData div.cover {
+	text-align: center;
+}
+
+div.registrationData div.cover img{
+	max-width: 80%;
+	max-height: 300px; 
+}
+
+form.registrationData{
+	text-align: left;
+}
+
+form.registrationData input{
+	width: 300px;
+	display: inline-block;
+	padding: 6px 12px;	
+}
+
+form.registrationData input.checkBox{
+	width: auto;
+}
+
+form.registrationData p{
+	padding-left: 5px;
+	font-size: small;
+}
+
+.inlineDisplay {
+	display: inline !important;
+}
+
+button#saveButton {
+	margin: 20px;
+	margin-left: 40%;
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;	
+	width: 20%;
+}
+
+.leftFloat {
+	float: left;
+}
+
+.authorDataTable {
+	float: left;
+	width: 50%;
+	min-height: 382px;
+	padding: 10px;
+	text-align: left;	
+}
+
+div.adminMainContent {
+	background-color: white;
+	padding: 20px;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	text-align: center;
+	min-height: 480px;
+	overflow: hidden;
+}
+
+.center {
+	position: absolute;
+    top: 30%;
+	left: 25%;
+}
+
+.suggesstionBox {
+	overflow: auto;
+	margin-left: 204px;
+}
+
+#addAuthor {
+	height: 36px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    display: none;
+}
+
+#searchBox {
+	width: 190px;
+}
+
+div.registrationData label.searchBoxLabel {
+	display: inline-block;
+    padding: 5px;
+    width: 200px;
+}
+
+.authorList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 190px;
+    text-overflow: ellipsis;
+    overflow:hidden;
+}
+
+.authorList label{
+	display: inline-block;
+}
+
+.authorList li {
+    padding: 10px;
+    background: #FAFAFA;
+    border-bottom: #F0F0F0 1px solid;
+}
+
+.addAuthorList {
+	overflow:hidden;
+	text-align: justify;
+}
+
+.addAuthorList button {
+	padding: 3px 10px;
+	float: right;
+}
+
+div.addAuthorList label{
+    float: left;
+    width: 150px !important;
+}
+
+input[type=file] {
+	padding-left: 0px !important;
+}
+
+.authorName {	
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+
+div.addAuthorList label.authorTextLabel {
+	min-width: 285px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
