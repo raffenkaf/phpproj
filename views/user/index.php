@@ -7,7 +7,7 @@ $this->title = 'Личная страница пользователя';
 <h1>Личные данные</h1>
 <div class="photo">
 <h2> Аватар </h2>
-<img alt="personal photo" src="<?= Yii::getAlias('@web').'/'.Yii::$app->user->identity->avatar_path ?>">
+<img alt="personal photo" src="<?= '/'.Yii::$app->user->identity->avatar_path ?>">
 </div>
 <div class="personalData">
 <table class="personalDataTable">

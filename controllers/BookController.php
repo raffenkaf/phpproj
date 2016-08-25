@@ -49,6 +49,7 @@ class BookController extends MyCoreController
                 'actions' => [
                 	'add' => ['get', 'post'],
                 	'edit' => ['get', 'post'],
+                	'download-register' => ['post'],
                 	'*' => ['get'],
                 ],
             ],
@@ -264,11 +265,14 @@ class BookController extends MyCoreController
      	$anyRecord = UserBookInteractions::find()
      	                                 ->where(['ip' => $ipAddress])
      	                                 ->andFilterWhere(['>', 'added', date('Y-m-d H:i:s', (time()- 86400))])
+     	                                 ->andFilterWhere(['view' => 1])
      	                                 ->one();
      	if (is_null($anyRecord)) {
      		$userBookInteractionsModel = new UserBookInteractions();
      		$userBookInteractionsModel->ip = $ipAddress;
      		$userBookInteractionsModel->book_id = $id;
+     		$userBookInteractionsModel->view = 1;
+     		$userBookInteractionsModel->download = 0;
      		$userBookInteractionsModel->save();//if it did not save - it is not a big problem
      	}
      	//
@@ -287,7 +291,7 @@ class BookController extends MyCoreController
     	$this->layout = 'mainWithoutHeader';
     	$model = new Book();
     	if ($model->load(Yii::$app->request->post())) {
-    		
+    		$model->created_at = date('Y-m-d H:i:s', time());
     		$model->added_by = Yii::$app->user->getIdentity()->id;
     		
     		$model->bookCover = UploadedFile::getInstance($model, 'bookCover');
@@ -306,13 +310,14 @@ class BookController extends MyCoreController
     			foreach (Yii::$app->request->post('authorId') as $authorId) {
     				$authorBookModel = new AuthorsBooks();
     				$authorBookModel->author_id = $authorId;
-    				$authorBookModel->book_id = $model->id;    				
+    				$authorBookModel->book_id = $model->id;
     				if (!$authorBookModel->save()) {
                         throw (new \Exception($authorId." ".$model->id));
     				}
     			}
     			$transaction->commit();
     		} catch (\Exception $e) {
+
     			$transaction->rollBack();
     			return $this->render('add', [
     					'model' => $model,
@@ -331,4 +336,28 @@ class BookController extends MyCoreController
     	$this->layout = 'mainWithoutHeader';
     	return $this->render('noBook');
     }
+// Ajax function for register new download    
+    public function actionDownloadRegister()
+    {
+    	if(!empty($_POST["id"])) {
+    		$ipAddress = Yii::$app->request->userIp;
+    		$anyRecord = UserBookInteractions::find()
+    		                                 ->where(['ip' => $ipAddress])
+    		                                 ->andFilterWhere(['>', 'added', date('Y-m-d H:i:s', (time()- 86400))])
+    		                                 ->andFilterWhere(['download' => 1])
+    		                                 ->one();
+   		
+    		if (is_null($anyRecord)) {
+    			$userBookInteractionsModel = new UserBookInteractions();
+    			$userBookInteractionsModel->ip = $ipAddress;
+    			$userBookInteractionsModel->book_id = $_POST["id"];
+    			$userBookInteractionsModel->view = 0;
+    			$userBookInteractionsModel->download = 1;
+    			$userBookInteractionsModel->save();
+    		}
+
+    	}
+
+    }
+//    
 }

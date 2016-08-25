@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'basePath' => dirname(__DIR__),
+    'basePath' => getenv('OPENSHIFT_REPO_DIR'),
     'bootstrap' => ['log'],
 	// set target language to be Russian
 	'language' => 'ru-RU',
@@ -45,9 +45,9 @@ $config = [
         ],
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=biblioteka',
-            'username' => 'root',
-            'password' => '',
+            'dsn' => 'mysql:host='.getenv('OPENSHIFT_MYSQL_DB_HOST').';port='.getenv('OPENSHIFT_MYSQL_DB_PORT').';dbname=phpproject',
+            'username' => 'adminBCApb1G',
+            'password' => 'BkiTvi-wyV2N',
             'charset' => 'utf8',
         ],
         'urlManager' => [

@@ -61,6 +61,7 @@ function addNewAuthor() {
     $("#addAuthorList").append(authorLabel);
     $("#addAuthorList").append(authorLabel);
     $("#addAuthorList label").last().text(authorName);
+    $("#addAuthorList label").last().attr("class", 'authorTextLabel');
     $("#addAuthorList").append(cancelAuthorButton);
     $("#emptyAuthorIdField").next().hide();
     $("#emptyAuthorIdField").val('tmp');
@@ -90,14 +91,8 @@ function cancelAuthor(methodAuthorid) {
         'options' => ['class' => 'registrationData']    		
     ]); ?>
         <?= $form->field($model, 'title')->textInput() ?>
-        <?php foreach ($model->authors as $author) { ?>
-            a
-        <?php } ?>        
         <?= $form->field($model, 'genre')->textInput() ?>
-        <?= $form->field($model, 'published_date')->widget(DatePicker::className(), [
-        	    'dateFormat' => 'yyyy-MM-dd'                
-            ]);
-        ?>
+        <?= $form->field($model, 'published_date')->textInput() ?>
         <?= $form->field($model, 'description')->textarea([
         	    'rows' => '10',
         	    'cols' => '41'
@@ -112,12 +107,12 @@ function cancelAuthor(methodAuthorid) {
         <?php foreach ($model->authors as $author) {?>
             <?= Html::input('hidden', 'authorId[]', $author['id']) ?>
             <?= Html::label('Автор', null, ['class' => 'authorName leftFloat']) ?>
-            <?= Html::label($author['name'], null, ['class' => 'authorName leftFloat']) ?>
+            <?= Html::label($author['name'], null, ['class' => 'authorTextLabel leftFloat']) ?>
             <?= Html::button('Убрать автора', ['onClick' => 'cancelAuthor('.$author['id'].');']) ?>
         <?php } ?>
         </div>
         <div class="textCenter"><h4>Добавить автора</h4><br /></div>
-        <?= Html::label('Поиск автора', 'searchBox') ?>        
+        <?= Html::label('Поиск автора', 'searchBox', ['class' => 'searchBoxLabel']) ?>        
         <?= Html::input('text','searchBox', null, ['class' => 'searchBox', 'id' => 'searchBox', 'autocomplete' => 'off']) ?>
         <?= Html::button('Добавить', ['id' => 'addAuthor', 'onClick' => 'addNewAuthor();']) ?>
         <div class="suggesstionBox" id="suggesstionBox"></div>

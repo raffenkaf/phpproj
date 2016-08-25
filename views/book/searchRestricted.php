@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="searchResult">
     <div class="searchPhoto">
         <?= Html::a('<img alt="personal photo" src="'.Yii::getAlias('@web').'/'.$model->book_cover_path.'" >', 
-        		    ['book/index', 'id' => $model->id]) ?>
+        		    ['book/view-restricted', 'id' => $model->id]) ?>
     </div>
     <div class="searchTextData">
         <h4><?= Html::a($model->title, ['book/view-restricted', 'id' => $model->id] ) ?> </h4>

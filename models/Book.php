@@ -17,8 +17,8 @@ class Book extends ActiveRecord
 	{
 		$scenarios = parent::scenarios();
 		$scenarios[self::SCENARIO_EDIT] = [
-				                           'title', 'description', 'authorIdFlag', 'bookCover', 
-				                           'book_cover_path', 'file_path', 'genre', 'added_by'
+				                           'title', 'description', 'authorIdFlag', 'published_date',
+				                           'book_cover_path', 'file_path', 'genre', 'added_by', 'bookCover'  
 				                          ];
 		$scenarios[self::SCENARIO_EDIT_RIGHTS] = [
 				                           'title', 'description', 'bookCover', 
@@ -118,7 +118,7 @@ class Book extends ActiveRecord
 		return [
 				'id' => 'ID',
 				'title' => 'Название книги',
-				'published_date' => 'Дата издания',
+				'published_date' => 'Год издания(4-циферный)',
 				'genre' => 'Жанр(или жанры)',
 				'bookCover' => 'Обложка',
 				'bookFile' => 'Книга(fb2, rtf, epub, zip)',

@@ -59,8 +59,9 @@ if (!Yii::$app->user->isGuest &&
 </div>
 <div class="warning">
     <h4>Данный сайт создан исключительно в ознакомительных целях. 
-        То есть служит приложением к <a href="resume.html">резюме</a>.
+        То есть служит приложением к <a href="resume.pdf" download>резюме</a>.        
     </h4>
+    <p> Пользователь с правами админа Login-admin, Password - adminadmin. </p>
     <p> Тематика сайта - онлайн библиотека. </p>
 </div>
 <div class="mainContent">

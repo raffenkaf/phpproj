@@ -225,8 +225,11 @@ class AuthorController extends MyCoreController
     	$this->layout = 'mainWithoutHeader';
     	$model = new Author();
     	if ($model->load(Yii::$app->request->post())) {
+    		$model->created_at = date('Y-m-d H:i:s', time());
     		$model->photo = UploadedFile::getInstance($model, 'photo');
     		if (!$model->save() || !$model->upload()) {// make as transaction
+    			var_dump($model->errors);
+    			exit;
     			return $this->render('add', [
     				'model' => $model,
     			]);
@@ -257,6 +260,8 @@ class AuthorController extends MyCoreController
     		                      ->limit(10)
     		                      ->asArray()
     		                      ->all();
+    	} else {
+    		return;
     	}
     	$html = '<ul class="authorList">';
     	foreach($searchResult as $author) {

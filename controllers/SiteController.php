@@ -84,8 +84,9 @@ class SiteController extends MyCoreController
     			          LIMIT 1";
     	$command = $connection->createCommand($maxViewId);
     	$result = $command->queryOne();
+
     	$maxViewModel = new Book($result);
-        
+    	
     	return $this->render('index', [
     			'maxDownloadModel' => $maxDownloadModel,
     			'maxViewModel' => $maxViewModel

@@ -91,10 +91,7 @@ function cancelAuthor(methodAuthorid) {
     ]); ?>        
         <?= $form->field($model, 'title')->textInput() ?>
         <?= $form->field($model, 'genre')->textInput() ?>
-        <?= $form->field($model, 'published_date')->widget(DatePicker::className(), [
-        	    'dateFormat' => 'yyyy'                
-            ]);
-        ?>
+        <?= $form->field($model, 'published_date')->textInput() ?>
         <?= $form->field($model, 'description')->textarea([
         	    'rows' => '10',
         	    'cols' => '41'

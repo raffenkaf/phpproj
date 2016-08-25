@@ -12,6 +12,17 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php if (!$model->examined) { ?>
 <h2> Книга непроверена </h2>
 <?php } ?>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#downloadLink").click(function(){
+		$.ajax({
+		    type: "POST",
+		    url: "/book/download-register",
+		    data:"id="+<?= $model->id ?>,
+		});
+	});
+});
+</script>
 <h1> <?= Html::encode($model->title) ?> </h1>
     <div class="photo">
         <h2> Обложка </h2>
@@ -44,7 +55,9 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
             <tr>
                 <td>
-                    <?= Html::a('Скачать', [Yii::getAlias('@web').'/'.$model->file_path], ['class' => 'buttonLink', 'download']) ?> <br />
+                    <?= Html::a('Скачать', [Yii::getAlias('@web').'/'.$model->file_path], 
+                    		    ['class' => 'buttonLink', 'id'=>'downloadLink', 'download']) 
+                    ?> <br />
                     <?php if (!Yii::$app->user->isGuest && (Yii::$app->user->getIdentity()->role == User::ROLE_ADMIN)) { ?>
                         <?= Html::a('Редактировать', ['book/edit', 'id' => $model->id], ['class' => 'buttonLink']) ?> <br />
                         <?php if ($model->examined == 0) { ?> 

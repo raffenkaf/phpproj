@@ -12,6 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'id' => 'add-user',
         'options' => ['class' => 'registrationData']    		
     ]); ?>
+	
         <?= $form->field($model, 'login')->textInput() ?>
         <?= $form->field($model, 'password')->passwordInput() ?>
         <?= $form->field($model, 'password_repeat')->passwordInput() ?>
